@@ -1,0 +1,19 @@
+#1
+N = int(input('Введите число: '))
+
+bin_N = bin(N)[2:]
+#2
+revers_N = ''
+for i in bin_N:
+    if i == '0':
+        revers_N += '1'
+    else:
+        revers_N += '0'
+
+revers_N = revers_N.lstrip('0')
+# print(revers_N)
+#3
+dec_N = int(revers_N,2)
+# print(dec_N)
+#4
+print(N-dec_N)
