@@ -1,20 +1,58 @@
-#1
-N = int(input('Введите число: '))
-
-bin_N = bin(N)[2:]
-#2
-revers_N = ''
-for i in bin_N:
-    if i == '0':
-        revers_N += '1'
-    else:
-        revers_N += '0'
-
-revers_N = revers_N.lstrip('0')
-# print(revers_N)
-#3
-dec_N = int(revers_N,2)
-# print(dec_N)
-#4
-print(N-dec_N)
+# N = 1
+# while True:
+#     bin_N = bin(N)[2:]
+#     # 2
+#     revers_N = ''
+#     for i in bin_N:
+#         if i == '0':
+#             revers_N += '1'
+#         else:
+#             revers_N += '0'
+#
+#     revers_N = revers_N.lstrip('0')
+#     # 3
+#     if revers_N == '':
+#         dec_N = 0
+#     else:
+#         dec_N = int(revers_N, 2)
+#     # 4
+#     if N - dec_N == 999:
+#         print(N)
+#         break
+#     N += 1
 #наименьшая N которая выведет 999 это 1011,тот же результат 1523
+
+#2
+max_dec=0
+N = 1
+while True:
+    sclad_N=0
+    sclad_N2=0
+    bin_N = bin(N)[2:]
+    # print(bin_N)
+
+    for i in bin_N:
+        sclad_N+=int(i)
+
+    ost=sclad_N % 2
+    sclad_N=str(bin_N) + str(ost)
+    # print(sclad_N)
+
+    for i in sclad_N:
+        sclad_N2+=int(i)
+
+    ost=sclad_N2 % 2
+    sclad_N2=int(str(sclad_N) + str(ost))
+    # print(sclad_N2)
+
+    dec_N=int(str(sclad_N2),2)
+    # print(dec_N)
+    if dec_N < 100:
+        if dec_N > max_dec:
+            max_dec = dec_N
+    else:
+        if N > 1000:
+            break
+    N+=1
+print(max_dec)
+print(N)
