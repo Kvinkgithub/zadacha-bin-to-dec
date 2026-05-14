@@ -1,0 +1,33 @@
+import scipy.stats as sps
+import numpy as np
+import matplotlib.pyplot as plt
+
+# loc = 0
+# scale = 1
+# xmin = -1
+# xmax = 3
+# grid_size = 10000
+# ymax = 3
+#
+# x = np.linspace(xmin, xmax, grid_size)
+# pdf = sps.uniform.pdf(x, loc=loc, scale=scale)
+#
+# x2 = np.linspace(0, 1, grid_size)
+# pdf2 = sps.uniform.pdf(x2, loc=loc, scale=scale)
+#
+#
+# plt.plot(x, pdf)
+# plt.plot(x2, pdf)
+# plt.ylim(0, ymax)
+# plt.xlim(xmin, xmax)
+# plt.xlabel('Значение')
+# plt.ylabel('Плотность')
+# plt.title('Равномерное распределение(плотность) U(0, 1)')
+# plt.grid(True, alpha=0.5)
+# plt.show()
+
+from scipy.signal import chirp
+t = np.linspace(6, 10, 500)
+w = chirp(t, f0=4, f1=1, t1=7, method='linear')
+plt.plot(t, w)
+plt.show()
