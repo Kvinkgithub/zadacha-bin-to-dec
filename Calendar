@@ -1,0 +1,16 @@
+import calendar
+
+calendar.prcal(2026)
+
+print(calendar.month(2026,1))
+
+print(calendar.isleap(2026))
+
+a=0
+useryear=int(input("Введите год "))
+for u in range(1,13): 
+    if calendar.weekday(useryear,u,13) ==4:
+        a+=1
+        print("Пятницы 13 были в этих месяцах: ")
+        print(calendar.month_name[u])
+print(f"Всего пятниц 13 в {useryear} : {a}")
