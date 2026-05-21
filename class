@@ -1,0 +1,46 @@
+from art import text2art, FONT_NAMES, randart
+
+class banera():
+    def __init__(self):
+        self.user_baner = None
+        self.user_font = None
+
+    def get_input(self):
+        user_text = input('Введите текст: ')
+        print(f'Доступные шрифты:{FONT_NAMES}')
+        user_fonts = input('Выберите шрифт написав его(по умолчанию напишите 1,для рандома напишите 2): ')
+
+        if user_fonts == '1':
+            user_fonts = 'block'
+        elif user_fonts == '2':
+            user_fonts = 'random'
+
+        self.user_baner = user_text
+        self.user_font = user_fonts
+
+    def show_art(self):
+        arts = text2art(self.user_baner, font=self.user_font)
+        print(arts)
+
+    def run(self):
+        self.get_input()
+        self.show_art()
+
+
+print(text2art('BANNER PRINT PROGRAM', font='block2'))
+
+a = True
+while a:
+    my_baner = banera()
+    my_baner.run()
+
+    while True:
+        exit = input('Закончить? y/n: ')
+        if exit == 'y' or exit == 'Y':
+            print(f'{randart()} Пока!!!')
+            a = False
+            break
+        elif exit == 'n' or exit == 'N':
+            break
+        else:
+            print(text2art('NE CORRECTNI VVOD', font='5lineoblique'))
