@@ -1,16 +1,37 @@
 import calendar
 
-calendar.prcal(2026)
+# calendar.prcal(2026)
+#
+# print(calendar.month(2026,1))
+#
+# print(calendar.isleap(2026))
 
-print(calendar.month(2026,1))
+#1 сколько пятник 13 в году и в каких они месяцах
+# a=0
+# useryear=int(input("Введите год "))
+# for u in range(1,13):
+#     if calendar.weekday(useryear,u,13) ==4:
+#         a+=1
+#         print("Пятницы 13 были в этих месяцах: ")
+#         print(calendar.month_name[u])
+# print(f"Всего пятниц 13 в {useryear} : {a}")
+#
 
-print(calendar.isleap(2026))
+#2 какой день недели чаще всего выпадает на 1 января 1975-2026
+days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+count = [0, 0, 0, 0, 0, 0, 0]
 
-a=0
-useryear=int(input("Введите год "))
-for u in range(1,13): 
-    if calendar.weekday(useryear,u,13) ==4:
-        a+=1
-        print("Пятницы 13 были в этих месяцах: ")
-        print(calendar.month_name[u])
-print(f"Всего пятниц 13 в {useryear} : {a}")
+for y in range(1975, 2027):
+    first_day = calendar.weekday(y, 1, 1)
+    count[first_day] += 1
+
+print("1 января (1975-2026):")
+for i in range(7):
+    print(f"{days[i]}: {count[i]} раз")
+
+max_day = 0
+for i in range(1, 7):
+    if count[i] > count[max_day]:
+        max_day = i
+
+print(f"\nЧаще всего: {days[max_day]}")
